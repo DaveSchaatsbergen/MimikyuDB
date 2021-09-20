@@ -1,13 +1,4 @@
 @extends('master')
-<?php
-// make all the count variables
-$count_abilities = count($abilities);
-$count_moves = count($moves);
-$count_stats = count($stats);
-$count_types = count($types);
-$count_sprite = count($sprite);
-echo $count_moves;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +36,30 @@ echo $count_moves;
         </div> 
         {{-- move_container --}}
         <div class="move_container">
-
+            <table class="table table-striped table-dark">
+                <tr>
+                    <th class="base_stat_header" Colspan="4">Move pool of {{$name}}</th>
+                </tr>
+                <tr>
+                   <th scope="col">Level</th>
+                   <th scope="col">Name</th>
+                   <th scope="col">Game</th>
+                   <th scope="col">method</th>
+                   <th scope="col">Detail</th>
+                </tr>
+                @foreach ($moves as $move)
+                    <tr>
+                        @foreach ($move['version_group_details'] as $move_detail)
+                            
+                            {!! '<td class="table_data">' . $move_detail['level_learned_at'] . '</td>' !!}
+                            {!! '<td class="table_data">' . $move['move']['name'] . '</td>' !!}
+                            {!! '<td class="table_data">' . $move_detail['version_group']['name'] . '</td>' !!}
+                            {!! '<td class="table_data">' . $move_detail['move_learn_method']['name'] . '</td>' !!}
+                            {!! '<td class="table_data"><a href="'.$move['move']['url'] . '">Detail</a></td>' !!}
+                        @endforeach
+                    </tr>
+                @endforeach
+            </table>
         </div> 
     </div>  
     @endsection
