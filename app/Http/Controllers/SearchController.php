@@ -16,11 +16,6 @@ class SearchController extends Controller
             echo $e->getMessage();
             return view('Home');
         }
-        // usort allows sorting by custom attribute
-        usort(
-            $pokemon_data['moves'],
-            function($a,$b){ return $a['version_group_details']['level_learned_at'] < $b['version_group_details']['level_learned_at'] ? -1 : 1;}
-        );
         // gathering all pokemon data
         $name = $pokemon_data['name'];
         $abilities = $pokemon_data['abilities'];
