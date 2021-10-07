@@ -124,6 +124,11 @@ tr, th, td {
     justify-content: space-around;
     flex-direction: column;
 }
+.moves_container {
+    display: hidden !important;
+    width: 100%;
+    height: auto;
+}
 /* Poké Styles */
 .pokeball {
 position: relative;

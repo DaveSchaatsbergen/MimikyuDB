@@ -11,6 +11,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {{-- end of bootstrap --}}
+    {{-- jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     {{-- font awesome --}}
     <script src="https://kit.fontawesome.com/7efd0841a1.js" crossorigin="anonymous"></script>
     {{-- end of font awesome --}}
@@ -24,7 +26,7 @@
             {{-- search bar --}}
             <div class="input-group">
                 <form class="search-form" action="/pokemon" method="post">
-                    <input class="searchbar form-control py-2 border-right-0 border" type="search" placeholder="Type pokemon name or pokedex ID" id="input" name="pokemonName">
+                    <input class="searchbar form-control py-2 border-right-0 border" type="search" placeholder="Type pokémon name or pokédex ID" id="input" name="pokemonName">
                     <span class="input-group-append">
                         <div class="input-group-text bg-transparent">
                             <button type="submit" class="btn btn-success">
@@ -74,7 +76,20 @@
             <a class="text-dark" href="https://daveschaatsbergen.nl/">DaveSchaatsbergen.nl</a>
           </div>
           <!-- Copyright -->
-        </footer>
-
+      </footer>
+      {{-- pokeball loading animation --}}
+      <div class="loading_wrapper">
+        <div class="pokeball">
+            <div class="pokeball__button"></div>
+        </div>
+        Loading...
+      </div>
+      <script>
+        jQuery(document).ready(function($) {
+            $(window).on("load",function(){
+                $(".loading_wrapper").fadeOut( "slow" );
+            });
+        });
+      </script>
 </body>
 </html>
