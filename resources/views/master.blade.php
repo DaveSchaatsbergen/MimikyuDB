@@ -90,6 +90,25 @@
                 $(".loading_wrapper").fadeOut( "slow" );
             });
         });
+        // $('.gameHeader').click(function() {
+        //     $(".gameInfo").toggleClass('hidden visable');
+        // });
+
+        // $("table.pokemon").click(function() {
+        //     var $this = $('table tr.gameInfo');
+        //     console.log($this)
+        //     if ($this.hasClass("hidden")) {
+        //         $this.removeClass("hidden").addClass("visable");
+        //     }
+        //     else {
+        //         $this.removeClass("visable").addClass("hidden");
+        //     }
+        // });
+
+      function toggleVisability(index) {
+        $(".gameInfo"+ index +"").toggleClass('hidden visable');
+        $(".arrow"+ index +"").toggleClass('fa-chevron-down fa-chevron-up');
+      }
       </script>
 </body>
 </html>

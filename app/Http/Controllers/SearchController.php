@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -13,8 +14,7 @@ class SearchController extends Controller
             $pokemon = file_get_contents('https://pokeapi.co/api/v2/pokemon/'.$id);
             $pokemon_data = json_decode($pokemon, true);
         } catch (Exception $e) {
-            echo $e->getMessage();
-            return view('Home');
+            abort(404);
         }
         // set all the variables
         $name = $pokemon_data['name'];

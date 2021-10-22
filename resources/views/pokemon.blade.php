@@ -15,7 +15,7 @@
         {{-- additional info --}}
         <table class="table table-striped table-dark">
             <tr>
-                <th class="base_stat_header devided4" Colspan="4">Info</th>
+                <th class="devided4" Colspan="4">Info</th>
             </tr>
             <tr>
                <th scope="col" class="devided4">abilities</th>
@@ -37,7 +37,7 @@
         {{-- sprite container  --}}
         <table class="table table-striped table-dark">
             <tr>
-                <th class="base_stat_header devided4" Colspan="4">{{$name}} sprites</th>
+                <th class="devided4" Colspan="4">{{$name}} sprites</th>
             </tr>
             <tr>
                <th scope="col" class="devided4">Normal</th>
@@ -61,29 +61,33 @@
             </tr>
         </table>
         {{-- move_container --}}
-
+        <table class="table table-striped table-dark pokemon">
+            <tr>
+                <th class="devided5 headertext" Colspan="5">Move pool of {{$name}}</th>
+            </tr>
+        </table>
     {{-- gen 1 red blue --}}
         @if (!empty($redBlue))
-            <table class="table table-striped table-dark">
+            <table class="table table-striped table-dark pokemon">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Red and Blue</th>
+                    <th id="redBlue" class="devided5 gameHeader" onclick="toggleVisability(0)" Colspan="5">Pokémon Red and Blue <i class="fas fa-chevron-down arrow0"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo0">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo0">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($redBlue as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo0">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo0">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -98,26 +102,26 @@
 
         {{-- Gen 1 Yellow --}}
         @if (!empty($yellow))
-            <table class="table table-striped table-dark">
+            <table class="table table-striped table-dark pokemon">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Yellow</th>
+                    <th class="devided5 gameHeader" onclick="toggleVisability(1)" Colspan="5">Pokémon Yellow <i class="fas fa-chevron-down arrow1"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo1">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo1">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($yellow as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo1">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo1">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -134,24 +138,24 @@
         @if (!empty($goldSilver))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Gold and Silver</th>
+                    <th class="devided5 gameHeader" onclick="toggleVisability(2)" Colspan="5">Pokémon Gold and Silver <i class="fas fa-chevron-down arrow2"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo2">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo2">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($goldSilver as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo2">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo2">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -168,24 +172,24 @@
         @if (!empty($crystal))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Crystal</th>
+                    <th class="devided5 gameHeader" onclick="toggleVisability(3)" Colspan="5">Pokémon Crystal <i class="fas fa-chevron-down arrow3"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo3">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo3">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($crystal as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo3">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo3">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -202,24 +206,24 @@
         @if (!empty($rubySaphire))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Ruby and Saphire</th>
+                    <th class="devided5  gameHeader" onclick="toggleVisability(4)" Colspan="5">Pokémon Ruby and Saphire <i class="fas fa-chevron-down arrow4"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo4">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo4">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($rubySaphire as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo4">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo4">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -236,24 +240,24 @@
         @if (!empty($emerald))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon emerald</th>
+                    <th class="devided5  gameHeader" onclick="toggleVisability(5)" Colspan="5">Pokémon emerald <i class="fas fa-chevron-down arrow5"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo5">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo5">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($emerald as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo5">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo5">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -270,24 +274,24 @@
         @if (!empty($fireRedLeafGreen))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Fire red and Leaf green</th>
+                    <th class="devided5  gameHeader" onclick="toggleVisability(6)" Colspan="5">Pokémon Fire red and Leaf green <i class="fas fa-chevron-down arrow6"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo6">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo6">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($fireRedLeafGreen as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo6">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo6">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -304,24 +308,24 @@
         @if (!empty($diamondPearl))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Diamond and Pearl</th>
+                    <th class="devided5  gameHeader" onclick="toggleVisability(7)" Colspan="5">Pokémon Diamond and Pearl <i class="fas fa-chevron-down arrow7"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo7">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo7">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($diamondPearl as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo7">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo7">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -338,24 +342,24 @@
         @if (!empty($platinum))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Platinum</th>
+                    <th class="devided5  gameHeader" onclick="toggleVisability(8)" Colspan="5">Pokémon Platinum <i class="fas fa-chevron-down arrow8"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo8">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo8">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($platinum as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo8">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo8">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -372,24 +376,24 @@
         @if (!empty($blackWhite))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Black and White</th>
+                    <th class="devided5 gameHeader" onclick="toggleVisability(9)" Colspan="5">Pokémon Black and White <i class="fas fa-chevron-down arrow9"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo9">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo9">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($blackWhite as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo9">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo9">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -406,24 +410,24 @@
         @if (!empty($blackWhite2))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Black 2 and White 2</th>
+                    <th class="devided5 gameHeader" onclick="toggleVisability(10)" Colspan="5">Pokémon Black 2 and White 2 <i class="fas fa-chevron-down arrow10"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo10">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo10">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($blackWhite2 as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo10">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo10">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -440,24 +444,24 @@
         @if (!empty($xy))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon X and Y</th>
+                    <th class="devided5 gameHeader" onclick="toggleVisability(11)" Colspan="5">Pokémon X and Y <i class="fas fa-chevron-down arrow11"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo11">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo11">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($xy as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo11">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo11">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -474,24 +478,24 @@
         @if (!empty($omegaAlpha))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Omega ruby Alpha Saphire</th>
+                    <th class="devided5 gameHeader" onclick="toggleVisability(12)" Colspan="5">Pokémon Omega ruby Alpha Saphire <i class="fas fa-chevron-down arrow12"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo12">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo12">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($omegaAlpha as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo12">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo12">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -508,24 +512,24 @@
         @if (!empty($sunMoon))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Sun and Moon</th>
+                    <th class="devided5 gameHeader" onclick="toggleVisability(13)" Colspan="5">Pokémon Sun and Moon <i class="fas fa-chevron-down arrow13"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo13">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo13">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($sunMoon as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo13">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo13">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -542,24 +546,24 @@
         @if (!empty($ultraSunMoon))
             <table class="table table-striped table-dark">
                 <tr>
-                    <th class="base_stat_header devided5" Colspan="5">Move pool of {{$name}} in Pokémon Ultra sun and Ultra moon</th>
+                    <th class="devided5 gameHeader" onclick="toggleVisability(14)" Colspan="5">Pokémon Ultra sun and Ultra moon <i class="fas fa-chevron-down arrow14"></i></th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo14">
                 <th scope="col" class="devided5">Level</th>
                 <th scope="col" class="devided5">Name</th>
                 <th scope="col" class="devided5">Game</th>
                 <th scope="col" class="devided5">method</th>
                 <th scope="col" class="devided5">Detail</th>
                 </tr>
-                <tr>
+                <tr class="hidden gameInfo14">
                     <?php $x = 0; ?>
-                    <td class="table_data" Colspan="5"><b>Moves Learned through HM/TM/Egg/Tutor</b></td>
+                    <td class="table_data" Colspan="5"><b class="headertext">Moves Learned through HM/TM/Egg/Tutor</b></td>
                     @foreach ($ultraSunMoon as $move_data)
-                    <tr>
+                    <tr class="hidden gameInfo14">
                     @if ($move_data['level_learned_at'] > 0 && $x === 0) 
-                        {!!'<td class="table_data" Colspan="5"><b>Moves learned through level up</b></td>'!!}
+                        {!!'<td class="table_data" Colspan="5"><b class="headertext">Moves learned through level up</b></td>'!!}
                         <?php $x++; ?>
-                        {!!'</tr> <tr>'!!}
+                        {!!'</tr> <tr class="hidden gameInfo14">'!!}
                     @endif
                     {!!'<td class="table_data">'.$move_data['level_learned_at'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
@@ -575,7 +579,7 @@
         {{-- base stats --}}
         <table class="table table-striped table-dark">
             <tr>
-                <th class="base_stat_header" Colspan="6">Base Stats of {{$name}}</th>
+                <th class="headertext" Colspan="6">Base Stats of {{$name}}</th>
             </tr>
             <tr>
             @foreach ($stats as $base_stat)
