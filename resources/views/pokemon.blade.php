@@ -50,12 +50,12 @@
                 {!! '<td class="table_data"><img src="' . $sprites['front_shiny'] . '" alt="shiny front" class="spriteImage"></td>' !!}
                 {!! '<td class="table_data"><img src="' . $icon['front_default'] . '" alt="icon front" class="spriteImage"></td>' !!}
                 @if (count($types) < 2)
-                    {!! '<td class="table_data"><img src="images/' . $types[0]['type']['name'] . '.png" alt="type 1"></td>' !!}
+                    {!! '<td class="table_data"><img src="/images/' . $types[0]['type']['name'] . '.png" alt="type 1"></td>' !!}
                 @else
                     {!! '<td class="table_data types">
-                            <img src="images/' . $types[0]['type']['name'] . '.png" alt="type 1">
+                            <img src="/images/' . $types[0]['type']['name'] . '.png" alt="type 1">
                             <br>
-                            <img src="images/' . $types[1]['type']['name'] . '.png" alt="type 2">
+                            <img src="/images/' . $types[1]['type']['name'] . '.png" alt="type 2">
                         </td>' !!}
                 @endif
             </tr>
@@ -93,7 +93,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -127,7 +127,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -161,7 +161,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -195,7 +195,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -229,7 +229,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -263,7 +263,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -297,7 +297,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -331,7 +331,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -365,7 +365,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -399,7 +399,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -433,7 +433,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -467,7 +467,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -501,7 +501,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -535,7 +535,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>
@@ -569,7 +569,7 @@
                     {!!'<td class="table_data">'.$move_data['move_name'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['game'].'</td>'!!}
                     {!!'<td class="table_data">'.$move_data['method'].'</td>'!!}
-                    {!!'<td class="table_data"><a href="'.$move_data['url'].'">Details</a></td>'!!}
+                    {!!'<td class="table_data"><a href="/pokemon/moves/'.$move_data["url"].'"">Details</a></td>'!!}
                     </tr>
                     @endforeach
                 </tr>

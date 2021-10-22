@@ -18,3 +18,7 @@ use App\Http\controllers\SearchController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/pokemon', [SearchController::class, 'searchPokemon']);
+
+Route::get('/pokemon/moves/{id}', [SearchController::class, 'moveData']);
+
+Route::get('/pokemon/{id}', [SearchController::class, 'searchPokemon']);

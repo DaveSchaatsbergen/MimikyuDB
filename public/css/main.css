@@ -165,6 +165,10 @@ tr, th, td {
     width: 16.66666666666667% !important;
 }
 
+.dewvided8 {
+    width: 12.5%;
+}
+
 .types, .ability {
     display: flex;
     align-items: center;
