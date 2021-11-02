@@ -373,6 +373,9 @@ class SearchController extends Controller
         $accuracy = $moveData['accuracy'];
         $damageClass = $moveData['damage_class']['name'];
         $moveText = $moveData['effect_entries'][0]['effect'];
+        // strip $chance_effect from the move text variable
+        $moveText = str_replace("$", "x", $moveText);
+        $moveText = str_replace("effect_chance%", "%", $moveText);
         $learnedBy = $moveData['learned_by_pokemon'];
         $name = $moveData['name'];
         $power = $moveData['power'];
